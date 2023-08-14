@@ -7,7 +7,7 @@ display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: 80vh;`;
+  height: 90vh;`;
   export const FormList = styled(Form)`
   display: flex;
 flex-direction: column;
@@ -15,7 +15,7 @@ align-items: center;
 gap: 20px;
 `;
 
-export const ContactList = styled.ul `
+export const ContactListstyles = styled.ul `
 list-style: none;
 display: flex;
 gap: 10px;
@@ -61,3 +61,31 @@ transition: box-shadow 0.3s, border 0.3s;
 
 }`;
 
+export const FilterInput = styled.input`
+padding: 10px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+
+  &:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+
+  &::placeholder {
+    color: #aaa;
+  }`;
+export const ButtonDelete = styled.button`
+background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 4px 12px;
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+
+  &:hover {
+    background-color: #d32f2f;
+  }`;
