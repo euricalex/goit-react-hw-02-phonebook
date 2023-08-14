@@ -1,8 +1,6 @@
-import { Formik, Field } from 'formik';
+import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { nanoid } from 'nanoid';
-import { ContactItem } from './Formstyle/Formstyle';
-
 import { FieldStyle, FormList, Button, StyledError } from './Formstyle/Formstyle';
 
 const SignupSchema = Yup.object().shape({
