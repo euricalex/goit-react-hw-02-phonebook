@@ -18,7 +18,23 @@ class App extends Component {
     ],
     filter: '',
   };
+  componentDidMount() {
+    console.log('component');
+    const savedContacts = localStorage.getItem('contacts');
+    if(savedContacts !== null) {
+ this.setState ({
+  contacts: JSON.parse(savedContacts)
+ });
+      
 
+    }
+
+  }
+componentDidUpdate(prevProps, prevState) {
+  if(prevState.contacts !== this.state.contacts) {
+   localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
+  }
+}
   addContact = (newContact) => {
     const {contacts} = this.state;
     const isDuplicate = contacts.some((contact) => contact.name === newContact.name);
@@ -41,6 +57,7 @@ removeContact = (contactID) => {
   };
 
   render() {
+    console.log('render')
     const { contacts, filter } = this.state;
 
     const filteredContacts = contacts.filter((contact) =>
