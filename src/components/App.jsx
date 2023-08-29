@@ -52,6 +52,7 @@ addContact = (newContact) => {
   }
 };
 
+
 removeContact = (contactID) => {
   this.setState((prevState) => ({
     contacts: prevState.contacts.filter((contact) => contact.id !== contactID)
