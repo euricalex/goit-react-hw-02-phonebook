@@ -35,18 +35,23 @@ componentDidUpdate(prevProps, prevState) {
    localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
   }
 }
-  addContact = (newContact) => {
-    const {contacts} = this.state;
-    const isDuplicate = contacts.some((contact) => contact.name === newContact.name);
+addContact = (newContact) => {
+  const { contacts } = this.state;
+  const lowerCaseName = newContact.name.toLowerCase(); // Приводимо до нижнього регістру
   
-    if(isDuplicate) {
-      alert('This contact already exists!');
-    } else {
-      this.setState((prevState) => ({
-        contacts: [...prevState.contacts, newContact],
+  const isDuplicate = contacts.some((contact) =>
+    contact.name.toLowerCase() === lowerCaseName
+  );
+
+  if (isDuplicate) {
+    alert('This contact already exists!');
+  } else {
+    this.setState((prevState) => ({
+      contacts: [...prevState.contacts, newContact],
     }));
   }
-  };
+};
+
 removeContact = (contactID) => {
   this.setState((prevState) => ({
     contacts: prevState.contacts.filter((contact) => contact.id !== contactID)
